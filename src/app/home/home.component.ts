@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Repo } from './repo';
-import { GitHubService } from './git-hub.service';
+import { Repo } from '../repo';
+import { GitHubService } from '../git-hub.service';
 
 @Component({
   selector: 'app-home',
@@ -10,19 +10,19 @@ import { GitHubService } from './git-hub.service';
 })
 export class HomeComponent implements OnInit {
 
-  repo: Repo[];
+  repos: Repo[];
 
   constructor(
-   @Inject(GitHubService) private git,
+   @Inject(GitHubService) private git, 
   ) { }
 
   ngOnInit() {
     this.getRepository();
   }
 
-  private getRepository(): void{
-    this.git.getRepos(
-      (val)=>{ this.repo = val}
+  getRepository(): void{
+    this.git.getRepos().subscribe(
+      (val)=>{ this.repos = val}
     )
   }
 

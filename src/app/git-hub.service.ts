@@ -3,7 +3,9 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Repo } from './repo';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class GitHubService {
 
   repo: Repo[];
@@ -14,8 +16,9 @@ export class GitHubService {
   ) { }
   
   getRepos(): Observable<any>{
-    
-    return this.http.get<Repo[]>( `${this.baseUrl}users/thamarais16/repos` );
+    let params = new HttpParams()
+    params = params.set('sort', 'description');
+    return this.http.get<Repo[]>( `${this.baseUrl}users/thamarais16/repos`, {params, withCredentials: true, } );
   }
 
 }
