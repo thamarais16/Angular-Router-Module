@@ -34,7 +34,7 @@ import { ProductService } from "./product.service";
     },
     {
       provide: ProductService,
-      useclass: ProductService
+      useClass: ProductService
     }
 
   ],
