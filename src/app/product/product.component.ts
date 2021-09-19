@@ -21,4 +21,7 @@ export class ProductComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
+  trackbyFn(index, item): any{
+    return item.productId;
+  }
 }

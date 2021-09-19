@@ -2,8 +2,8 @@
   <div class="card-header">
     <h2>Product Component</h2>
   </div>
-  <div class="card-body">
-    <table>
+  <div class="card-body table-responsive">
+    <table class="table">
       <thead>
         <tr>
           <th>Product Id</th>
@@ -12,12 +12,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Product Id</td>
-          <td>Name</td>
-          <td>Price</td>
+        <tr *ngFor="let product of products; trackBy: trackbyFn;">
+          <td>{{product.productId}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>  
+</div>   

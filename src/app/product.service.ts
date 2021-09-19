@@ -23,7 +23,7 @@ export class ProductService {
       new Product("20", "Pen drive", "600"),
       new Product("21", "Hard drive", "2600"),
       new Product("22", "Cd drive", "3600"),
-      new Product("22", "Google drive", "0")
+      new Product("23", "Google drive", "0") 
     ]
 
     return products;
